@@ -1,0 +1,74 @@
+{
+  "name": "スクショボタン",
+  "version": "0.9.0",
+  "manifest_version": 2,
+  "description": "１クリックでYouTube等の動画のスクリーンショットを撮影できます。",
+  "homepage_url": "https://arus.me",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    "icons/icon.svg"
+  ],
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+    "webNavigation",
+    "https://www.youtube.com/*",
+    "https://www.openrec.tv/*",
+    "https://www.twitch.tv/*",
+    "https://www.mildom.com/*"
+  ],
+  "content_security_policy": "script-src 'self' ; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "js/youtube.js"
+      ]
+    },
+    {
+      "matches": [
+        
+        "https://www.openrec.tv/*"
+      ],
+      "js": [
+        "js/lib/jquery-3.5.1.slim.min.js",
+        "js/openrec.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.showroom-live.com/*"
+      ],
+      "js": [
+        "js/showroom.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.mildom.com/*"
+      ],
+      "js": [
+        "js/mildom.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.twitch.tv/*"
+      ],
+      "js": [
+        "js/lib/jquery-3.5.1.slim.min.js",
+        "js/twitch.js"
+      ]
+    }
+  ]
+}
