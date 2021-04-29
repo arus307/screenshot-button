@@ -32,7 +32,7 @@ function main(e) {
         }
 
         //ライブ
-        let videoRightControls = document.getElementsByClassName("video-controls__right")[0];
+        let videoRightControls = document.getElementsByClassName("layout-right")[0];
         if (videoRightControls) {
             screenshotButton.onclick = CaptureScreenshotAtLive;
             videoRightControls.prepend(screenshotButton);
@@ -83,7 +83,7 @@ function CaptureScreenshotAtArchive() {
 }
 
 function CaptureScreenshotAtLive() {
-    let player = document.querySelectorAll("video.nono-video")[0];
+    let player = document.getElementsByTagName("video")[0];
     CaptureScreenshot(player);
 }
 
