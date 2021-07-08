@@ -1,6 +1,6 @@
 {
   "name": "スクショボタン",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "description": "１クリックでYouTube等の動画のスクリーンショットを撮影できます。",
   "homepage_url": "https://arus.me",
@@ -23,7 +23,8 @@
     "https://www.youtube.com/*",
     "https://www.openrec.tv/*",
     "https://www.twitch.tv/*",
-    "https://www.mildom.com/*"
+    "https://www.mildom.com/*",
+    "https://spwn.jp/*"
   ],
   "content_security_policy": "script-src 'self' ; object-src 'self'",
   "content_scripts": [
@@ -68,6 +69,14 @@
       "js": [
         "js/lib/jquery-3.5.1.slim.min.js",
         "js/twitch.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://spwn.jp/*"
+      ],
+      "js": [
+        "js/spwn.js"
       ]
     }
   ]
