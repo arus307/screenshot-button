@@ -38,7 +38,7 @@ function CaptureScreenshot() {
     canvas.getContext('2d').drawImage(player, 0, 0, canvas.width, canvas.height);
 
         canvas.toBlob(async function (blob) {
-            let fileName = getFileName();
+            let fileName = getFileName(player);
 
             let downloadLink = document.createElement("a");
             downloadLink.download = fileName;
@@ -52,19 +52,12 @@ function CaptureScreenshot() {
 /**
  * ファイル名取得
  */
-function getFileName() {
+function getFileName(player) {
     let ext = ".png";
-    let title;
-
-    let players = document.getElementsByTagName("video");
-    let player = Array.prototype.filter.call(players,(p)=>p.src !="")[0];
-
+    let title = "";
     let time = player.currentTime;
 
-    title += " ";
-
     let minutes = Math.floor(time / 60);
-
     let seconds = Math.floor(time - (minutes * 60));
 
     if (minutes > 60) {
@@ -75,7 +68,5 @@ function getFileName() {
 
     title += minutes + "-" + seconds;
 
-    title += " " + appendixTitle;
-
-    return "screenshot " + title + ext;
+    return "SPWN-screenshot " + title + ext;
 }
