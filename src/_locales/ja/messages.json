@@ -1,0 +1,11 @@
+{
+    "extName": {
+        "message": "スクショボタン"
+    },
+    "extDescription": {
+        "message": "１クリックでYouTube等の動画のスクリーンショットを撮影できます。"
+    },
+    "options": {
+        "message": "設定"
+    }
+}
