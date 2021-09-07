@@ -3,6 +3,14 @@
 
 対応している動画配信サイト
 - YouTube
+- OPENREC.tv
+- SHOWROOM
+- Mildom
+- Twitch
+- SPWN
+
+### インストール後の画面イメージ
+- YouTube
 ![youtube](https://user-images.githubusercontent.com/57102101/92698927-eff27400-f387-11ea-8197-886d789bf8c8.png)
 - OPENREC.tv
 ![openrec](https://user-images.githubusercontent.com/57102101/92698923-eec14700-f387-11ea-8894-06d36f61d7bf.png)
