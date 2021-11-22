@@ -84,22 +84,7 @@ function getFileName() {
     }
 
     let player = document.getElementsByTagName("video")[0];
-
-    let time = player.currentTime;
-
-    title += " ";
-
-    let minutes = Math.floor(time / 60);
-
-    let seconds = Math.floor(time - (minutes * 60));
-
-    if (minutes > 60) {
-        let hours = Math.floor(minutes / 60)
-        minutes -= hours * 60;
-        title += hours + "-";
-    }
-
-    title += minutes + "-" + seconds;
+    title += " " + Util.formatTime(player.currentTime);
 
     title += " " + appendixTitle;
 

@@ -56,7 +56,9 @@ function getFileName() {
      */
     function SetTitle() {
         if (headerEls.length > 0) {
-            title = headerEls[0].innerText.trim();
+            title = Array.from(headerEls).map(el=>{
+                return el.innerText.trim();
+            }).join("");
             return true;
         } else {
             return false;
@@ -71,21 +73,7 @@ function getFileName() {
     }
     let player = document.getElementsByClassName("video-stream")[0];
 
-    let time = player.currentTime;
-
-    title += " ";
-
-    let minutes = Math.floor(time / 60);
-
-    let seconds = Math.floor(time - (minutes * 60));
-
-    if (minutes > 60) {
-        let hours = Math.floor(minutes / 60)
-        minutes -= hours * 60;
-        title += hours + "-";
-    }
-
-    title += minutes + "-" + seconds;
+    title += " " + Util.formatTime(player.currentTime);
 
     title += " " + appendixTitle;
 

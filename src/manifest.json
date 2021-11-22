@@ -3,7 +3,7 @@
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
   "default_locale": "ja",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "manifest_version": 2,
   "homepage_url": "https://arus.me",
   "icons": {
@@ -35,7 +35,8 @@
         "https://www.youtube.com/*"
       ],
       "js": [
-        "js/youtube.js"
+        "js/youtube.js",
+        "js/util.js"
       ]
     },
     {
@@ -45,7 +46,8 @@
       ],
       "js": [
         "js/lib/jquery-3.5.1.slim.min.js",
-        "js/openrec.js"
+        "js/openrec.js",
+        "js/util.js"
       ]
     },
     {
@@ -53,7 +55,8 @@
         "https://www.showroom-live.com/*"
       ],
       "js": [
-        "js/showroom.js"
+        "js/showroom.js",
+        "js/util.js"
       ]
     },
     {
@@ -61,7 +64,8 @@
         "https://www.mildom.com/*"
       ],
       "js": [
-        "js/mildom.js"
+        "js/mildom.js",
+        "js/util.js"
       ]
     },
     {
@@ -70,7 +74,8 @@
       ],
       "js": [
         "js/lib/jquery-3.5.1.slim.min.js",
-        "js/twitch.js"
+        "js/twitch.js",
+        "js/util.js"
       ]
     },
     {
@@ -78,7 +83,8 @@
         "https://spwn.jp/*"
       ],
       "js": [
-        "js/spwn.js"
+        "js/spwn.js",
+        "js/util.js"
       ]
     }
   ]

@@ -55,18 +55,8 @@ function CaptureScreenshot() {
 function getFileName(player) {
     let ext = ".png";
     let title = "";
-    let time = player.currentTime;
 
-    let minutes = Math.floor(time / 60);
-    let seconds = Math.floor(time - (minutes * 60));
+    title += Util.formatTime(player.currentTime);
 
-    if (minutes > 60) {
-        let hours = Math.floor(minutes / 60)
-        minutes -= hours * 60;
-        title += hours + "-";
-    }
-
-    title += minutes + "-" + seconds;
-
-    return "SPWN-screenshot " + title + ext;
+    return "SPWN" + title + " screenshot" + ext;
 }
