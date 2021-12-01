@@ -3,7 +3,7 @@
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
   "default_locale": "ja",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "manifest_version": 2,
   "homepage_url": "https://arus.me",
   "icons": {
@@ -26,7 +26,8 @@
     "https://www.openrec.tv/*",
     "https://www.twitch.tv/*",
     "https://www.mildom.com/*",
-    "https://spwn.jp/*"
+    "https://spwn.jp/*",
+    "https://*.spwn.jp/*"
   ],
   "content_security_policy": "script-src 'self' ; object-src 'self'",
   "content_scripts": [
@@ -80,7 +81,8 @@
     },
     {
       "matches": [
-        "https://spwn.jp/*"
+        "https://spwn.jp/*",
+        "https://*.spwn.jp/*"
       ],
       "js": [
         "js/spwn.js",
