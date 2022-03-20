@@ -34,16 +34,14 @@ function main(e) {
         //ライブ
         let videoRightControls = document.getElementsByClassName("layout-right")[0];
         if (videoRightControls) {
-            screenshotButton.onclick = CaptureScreenshotAtLive;
+            screenshotButton.onclick = CaptureScreenshot;
             videoRightControls.prepend(screenshotButton);
         }
-
-        console.log(document.getElementsByClassName("vod-controller-bar")[0]);
 
         //アーカイブ
         let vodControlBar = document.getElementsByClassName("vod-controller-bar")[0];
         if (vodControlBar) {
-            screenshotButton.onclick = CaptureScreenshotAtArchive;
+            screenshotButton.onclick = CaptureScreenshot;
             vodControlBar.append(screenshotButton);
         }
     };
@@ -54,7 +52,8 @@ AddScreenshotButton();
 /**
  * キャプチャ実行
  */
-function CaptureScreenshot(player) {
+function CaptureScreenshot() {
+    let player = document.getElementsByTagName("video")[0];
 
     let canvas = document.createElement("canvas");
     canvas.width = player.videoWidth;
@@ -70,21 +69,6 @@ function CaptureScreenshot(player) {
         downloadLink.href = URL.createObjectURL(blob);
         downloadLink.click();
     }, 'image/png');
-
-}
-
-/**
- * アーカイブ
- */
-function CaptureScreenshotAtArchive() {
-    let player = document.getElementsByTagName("video")[0];
-
-    CaptureScreenshot(player);
-}
-
-function CaptureScreenshotAtLive() {
-    let player = document.getElementsByTagName("video")[0];
-    CaptureScreenshot(player);
 }
 
 /**
