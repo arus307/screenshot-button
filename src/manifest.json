@@ -1,9 +1,8 @@
 {
-
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
   "default_locale": "ja",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "manifest_version": 2,
   "homepage_url": "https://arus.me",
   "icons": {
@@ -20,7 +19,9 @@
     ],
     "persistent": false
   },
+  "options_page": "options/options.html",
   "permissions": [
+    "storage",
     "webNavigation",
     "https://www.youtube.com/*",
     "https://www.openrec.tv/*",
@@ -30,7 +31,7 @@
     "https://*.spwn.jp/*",
     "https://live.nicovideo.jp/*"
   ],
-  "content_security_policy": "script-src 'self' ; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'",
   "content_scripts": [
     {
       "matches": [
@@ -38,18 +39,19 @@
       ],
       "js": [
         "js/youtube.js",
-        "js/util.js"
+        "js/util.js",
+        "js/shared.js"
       ]
     },
     {
       "matches": [
-        
         "https://www.openrec.tv/*"
       ],
       "js": [
-        "js/lib/jquery-3.5.1.slim.min.js",
+        "lib/jquery-3.5.1.slim.min.js",
         "js/openrec.js",
-        "js/util.js"
+        "js/util.js",
+        "js/shared.js"
       ]
     },
     {
@@ -58,7 +60,8 @@
       ],
       "js": [
         "js/showroom.js",
-        "js/util.js"
+        "js/util.js",
+        "js/shared.js"
       ]
     },
     {
@@ -67,7 +70,8 @@
       ],
       "js": [
         "js/mildom.js",
-        "js/util.js"
+        "js/util.js",
+        "js/shared.js"
       ]
     },
     {
@@ -75,9 +79,10 @@
         "https://www.twitch.tv/*"
       ],
       "js": [
-        "js/lib/jquery-3.5.1.slim.min.js",
+        "lib/jquery-3.5.1.slim.min.js",
         "js/twitch.js",
-        "js/util.js"
+        "js/util.js",
+        "js/shared.js"
       ]
     },
     {
@@ -87,7 +92,8 @@
       ],
       "js": [
         "js/spwn.js",
-        "js/util.js"
+        "js/util.js",
+        "js/shared.js"
       ]
     },
     {
@@ -95,7 +101,8 @@
         "https://live.nicovideo.jp/*"
       ],
       "js": [
-        "js/nicolive.js"
+        "js/nicolive.js",
+        "js/shared.js"
       ]
     }
   ]

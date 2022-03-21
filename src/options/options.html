@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スクショボタン設定</title>
+
+    <!-- bootstrap -->
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    </link>
+    <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../lib/vue.min.js"></script>
+    <script src="options.js" defer></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+
+        <div class="card mt-4">
+            <div class="card-header">
+                ショートカットキー設定 現在の設定値:【{{shortcut}}】
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <div class=" form-check form-switch">
+                            <label for="input-ctrl" class="form-check-label">Ctrl</label>
+                            <input type="checkbox" v-model="ctrl" name="ctrl" id="input-ctrl" class="form-check-input">
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <label for="input-alt" class="form-check-label">Alt</label>
+                            <input type="checkbox" v-model="alt" name="alt" id="input-alt" class="form-check-input">
+                        </div>
+
+                        <div class="form-check form-switch">
+                            <label for="input-shift" class="form-check-label">Shift</label>
+                            <input type="checkbox" v-model="shift" name="shift" id="input-shift"
+                                class="form-check-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-1">
+
+                    <div class="input-group col">
+
+                        <span class="input-group-text">キー</span>
+                        <input type="email" name="key" :value="key" id="input-key" maxlength="1" @keydown="onKeyDown"
+                            class="form-control">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
