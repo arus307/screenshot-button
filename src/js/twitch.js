@@ -5,14 +5,12 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 //スクリーンショットのボタン設定
 let screenshotButton = document.createElement("button");
-screenshotButton.id = "chrome-extension-screenshot-button";
 screenshotButton.className = "screenshotButton";
 screenshotButton.style.width = "3rem";
 screenshotButton.style.height = "3rem";
-screenshotButton.style.borderRadius="0.4rem";
+screenshotButton.style.borderRadius = "0.4rem";
 screenshotButton.innerHTML = '<img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:2rem;height:2rem;transform:translate(25%,0)">'
 screenshotButton.style.cssFloat = "left";
-screenshotButton.prepe
 screenshotButton.onclick = CaptureScreenshot;
 
 /**
@@ -29,18 +27,16 @@ function main(e) {
     const jsInitCheckTimer = setInterval(jsLoaded, 100);
 
     function jsLoaded() {
-
-        //追加済みであれば何もしない
-        let isExist = document.getElementById("chrome-extension-screenshot-button");
-        if (isExist) {
-            return;
-        }
-
-        let playerRightControlGroup = document.getElementsByClassName("player-controls__right-control-group")[0];
-
-        if (playerRightControlGroup) {
-            playerRightControlGroup.append(screenshotButton);
-        }
+        let playerRightControlGroups = document.getElementsByClassName("player-controls__right-control-group");
+        Array.prototype.forEach.call(playerRightControlGroups, group => {
+            let isExist = group.getElementsByClassName("screenshotButton").length != 0;
+            if (isExist) {
+                //追加済みであれば何もしない
+                return;
+            }
+            let btn = screenshotButton.cloneNode(true);
+            group.append(btn);
+        })
     };
 }
 
