@@ -3,8 +3,8 @@
 //スクリーンショットのボタン設定
 let screenshotButton = document.createElement("button");
 screenshotButton.className = "screenshotButton ytp-button";
-screenshotButton.style.width = "36px";
-screenshotButton.innerHTML = '<img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:22px;height:22px;transform:translate(7px,7px)">'
+screenshotButton.title = "スクリーンショットを撮る"
+screenshotButton.innerHTML = '<img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:22px;height:22px;transform:translate(11px,7px)">'
 screenshotButton.style.cssFloat = "left";
 screenshotButton.onclick = CaptureScreenshot;
 
@@ -31,15 +31,15 @@ function CaptureScreenshot() {
     canvas.height = player.videoHeight;
     canvas.getContext('2d').drawImage(player, 0, 0, canvas.width, canvas.height);
 
-        canvas.toBlob(async function (blob) {
-            let fileName = getFileName();
+    canvas.toBlob(async function (blob) {
+        let fileName = getFileName();
 
-            let downloadLink = document.createElement("a");
-            downloadLink.download = fileName;
+        let downloadLink = document.createElement("a");
+        downloadLink.download = fileName;
 
-            downloadLink.href = URL.createObjectURL(blob);
-            downloadLink.click();
-        }, 'image/png');
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.click();
+    }, 'image/png');
 
 }
 
@@ -56,7 +56,7 @@ function getFileName() {
      */
     function SetTitle() {
         if (headerEls.length > 0) {
-            title = Array.from(headerEls).map(el=>{
+            title = Array.from(headerEls).map(el => {
                 return el.innerText.trim();
             }).join("");
             return true;
