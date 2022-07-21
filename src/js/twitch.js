@@ -11,7 +11,7 @@ screenshotButton.style.height = "3rem";
 screenshotButton.style.borderRadius = "0.4rem";
 screenshotButton.innerHTML = '<img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:2rem;height:2rem;transform:translate(25%,0)">'
 screenshotButton.style.cssFloat = "left";
-screenshotButton.onclick = CaptureScreenshot;
+// screenshotButton.onclick = CaptureScreenshot;
 
 /**
  * スクリーンショットボタンを追加
@@ -35,6 +35,7 @@ function main(e) {
                 return;
             }
             let btn = screenshotButton.cloneNode(true);
+            btn.onclick = CaptureScreenshot
             group.append(btn);
         })
     };
