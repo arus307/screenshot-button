@@ -7,6 +7,18 @@ var vue = new Vue({
         alt: true,
         shift: false,
         key: 's',
+
+        msgTitle: "",
+        msgCurrentShortcutSettings: "",
+        msgShortcutKey: "",
+
+    },
+
+    created: function () {
+        this.msgTitle = chrome.i18n.getMessage('options_page_title');
+        document.title = this.msgTitle;
+
+        this.msgShortcutKey = chrome.i18n.getMessage('options_page_shortcut_key');
     },
 
     mounted: function () {
@@ -77,5 +89,9 @@ var vue = new Vue({
         "key": function (_old, _new) {
             this.saveOptions();
         },
+
+        shortcut: function (_old, _new) {
+            this.msgCurrentShortcutSettings = chrome.i18n.getMessage('options_page_current_shortcut_settings', [_new]);
+        }
     }
 });

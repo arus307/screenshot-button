@@ -7,5 +7,19 @@
     },
     "options": {
         "message": "settings"
+    },
+    "options_page_title": {
+        "message": "Screenshot Button Settings"
+    },
+    "options_page_current_shortcut_settings": {
+        "message": "Shortcut Key Settings current key bind:【$shortcut$】",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "options_page_shortcut_key": {
+        "message": "key"
     }
 }

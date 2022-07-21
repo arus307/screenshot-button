@@ -21,7 +21,7 @@
 
         <div class="card mt-4">
             <div class="card-header">
-                ショートカットキー設定 現在の設定値:【{{shortcut}}】
+                {{msgCurrentShortcutSettings}}
             </div>
 
             <div class="card-body">
@@ -52,7 +52,7 @@
 
                     <div class="input-group col">
 
-                        <span class="input-group-text">キー</span>
+                        <span class="input-group-text">{{msgShortcutKey}}</span>
                         <input type="email" name="key" :value="key" id="input-key" maxlength="1" @keydown="onKeyDown"
                             class="form-control">
                     </div>

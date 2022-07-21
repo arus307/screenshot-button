@@ -7,5 +7,19 @@
     },
     "options": {
         "message": "設定"
+    },
+    "options_page_title": {
+        "message": "スクショボタン設定"
+    },
+    "options_page_current_shortcut_settings": {
+        "message": "ショートカットキー設定 現在の設定値:【$shortcut$】",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "options_page_shortcut_key": {
+        "message": "キー"
     }
 }
