@@ -1,22 +1,19 @@
 'use strict';
 
 //スクリーンショットのボタン設定
-let screenshotButton = document.createElement("button");
-screenshotButton.className = "screenshotButton";
-screenshotButton.style.backgroundColor = "transparent";
-screenshotButton.style.border = "none";
-screenshotButton.style.width = "100%";
+let screenshotButton = document.querySelector("button.st-activate__button").cloneNode();
 screenshotButton.innerHTML = '<a><img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:25px;height:25px;"><br>スクショ</a>'
 screenshotButton.onclick = CaptureScreenshot;
 
 let ssLi = document.createElement("li");
+ssLi.className = "st-activate__item";
 ssLi.prepend(screenshotButton);
 
 /**
  * スクリーンショットボタンを追加
  */
 function AddScreenshotButton() {
-    let footerUl = document.getElementById("gift-area-wrapper").parentElement;
+    let footerUl = document.querySelector("ul.st-activate__list");
     if (footerUl) {
         footerUl.prepend(ssLi);
     }
@@ -28,7 +25,7 @@ AddScreenshotButton();
  * キャプチャ実行
  */
 function CaptureScreenshot() {
-    let player = document.getElementById("js-video");
+    let player = document.getElementsByTagName("video")[0];
 
     let canvas = document.createElement("canvas");
     canvas.width = player.videoWidth;
@@ -53,11 +50,11 @@ function CaptureScreenshot() {
 function getFileName() {
     let appendixTitle = "screenshot.png";
     let title;
-    let headerEls = document.querySelectorAll("h1.room-header-user-name");
+    let headerEls = document.querySelectorAll("h1.room-name");
 
-    if(headerEls.length > 0){
+    if (headerEls.length > 0) {
         title = headerEls[0].innerText.trim();
-    }else{
+    } else {
         title = 'SHOWROOM';
     }
 
