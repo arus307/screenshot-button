@@ -2,7 +2,7 @@
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
   "default_locale": "ja",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "manifest_version": 2,
   "homepage_url": "https://arus.me",
   "icons": {
@@ -29,7 +29,8 @@
     "https://www.mildom.com/*",
     "https://spwn.jp/*",
     "https://*.spwn.jp/*",
-    "https://live.nicovideo.jp/*"
+    "https://live.nicovideo.jp/*",
+    "https://*.zan-live.com/*"
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'",
   "content_scripts": [
@@ -102,6 +103,16 @@
       ],
       "js": [
         "js/nicolive.js",
+        "js/shared.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.zan-live.com/*"
+      ],
+      "js": [
+        "js/zan.js",
+        "js/util.js",
         "js/shared.js"
       ]
     }
