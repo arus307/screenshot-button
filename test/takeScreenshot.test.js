@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const extensionPath = __dirname + "/../src";
-const DOWNLOAD_DIR = __dirname + "\\download";
+const DOWNLOAD_DIR = __dirname + "/download";
 const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
 jest.setTimeout(30000);
