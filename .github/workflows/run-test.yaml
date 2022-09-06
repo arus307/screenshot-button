@@ -43,10 +43,10 @@ jobs:
       with:
         args: npm run test
         
-    #- run: ls -R
+    #- run: ls ./test/download
 
     - name: Save Download Directory
       uses: actions/upload-artifact@v3
       with:
         name: Download Directory
-        path: ./test/download # or path/to/artifact
+        path: ./test/download/ # or path/to/artifact
