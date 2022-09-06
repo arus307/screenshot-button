@@ -1,0 +1,49 @@
+name: RUN test
+on:
+  schedule:
+    - cron: '0 0 * * *' #毎日00:00
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    # 以下が実際のステップ
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+
+    # - name: Build project
+    #   uses: actions/setup-node@v2
+    #   env:
+    #     PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+    #   with:
+    #     args: npm install
+
+    - name: Install Dependencies
+      uses: actions/setup-node@v2
+      env:
+        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+      with:
+        args: install
+
+    - run: npm install
+
+    - name: Test Code
+      uses: mujo-code/puppeteer-headful@v2
+      with:
+        args: npm run test
+
+    - name: Save Download Directory
+      uses: actions/upload-artifact@v3
+      with:
+        name: Download Directory
+        path: ./test/download # or path/to/artifact
