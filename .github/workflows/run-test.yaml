@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,21 +38,26 @@ jobs:
 
     - run: npm install
 
+    - run: mkdir ./test/download -p
+    - run: mkdir ./test/puppeteerScreenShot -p
+
     - name: Test Code
       uses: mujo-code/puppeteer-headful@v2
       with:
         args: npm run test
         
     - run: ls ./test/download
-
-    - name: Save Download Directory
-      uses: actions/upload-artifact@v3
-      with:
-        name: Download Directory
-        path: ./test/download/ # or path/to/artifact
         
     - name: Save Downloaded Files
       uses: actions/upload-artifact@v3
       with:
         name: Downloaded Files
         path: ./test/download/* # or path/to/artifact
+
+    - run: ls ./test/puppeteerScreenShot
+
+    - name: Save ScreenShots
+      uses: actions/upload-artifact@v3
+      with:
+        name: ScreenShots
+        path: ./test/puppeteerScreenShot/* # or path/to/artifact

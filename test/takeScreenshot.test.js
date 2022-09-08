@@ -1,6 +1,8 @@
 const puppeteer = require('puppeteer');
-const extensionPath = __dirname + "/../src";
-const DOWNLOAD_DIR = __dirname + "/download";
+const path = require('path');
+const extensionPath = path.join(__dirname, "../src");// __dirname + "/../src";
+const DOWNLOAD_DIR = path.join(__dirname, "download");// __dirname + "/download";
+const CAPTURE_DIR = path.join(__dirname, "puppeteerScreenShot");// __dirname + "/puppeteerScreenShot";
 const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
 jest.setTimeout(30000);
@@ -43,7 +45,7 @@ describe('Take Screenshot Test', () => {
         //1s待つ
         await sleep(3000);
 
-        await page.screenshot({ path: 'YouTube.png' });
+        await page.screenshot({ path: path.join(CAPTURE_DIR, 'YouTube.png') });
 
         //スクショボタンが追加されているかチェック
         const isButtonAdded = await page.$('.screenshotButton').then(res => !!res);
@@ -57,6 +59,7 @@ describe('Take Screenshot Test', () => {
 
         await page.click(".screenshotButton");
 
+        //DL完了を待つ
         await sleep(5000);
     });
 
