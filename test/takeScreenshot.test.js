@@ -10,6 +10,7 @@ jest.setTimeout(30000);
 describe('Take Screenshot Test', () => {
     let browser = null;
     let page = null;
+    let download;
 
     beforeAll(async () => {
 
@@ -31,6 +32,20 @@ describe('Take Screenshot Test', () => {
             downloadPath: DOWNLOAD_DIR,
             eventsEnabled: true,
         });
+
+        download = new Promise((resolve, reject) => {
+            cdpSession.on(
+                "Browser.downloadProgress",
+                (params) => {
+                    if (params.state == "completed") {
+                        resolve();
+                    } else if (params.state == "canceled") {
+                        reject("download cancelled");
+                    }
+                }
+            );
+        });
+
     });
 
     afterAll(async () => {
@@ -43,7 +58,9 @@ describe('Take Screenshot Test', () => {
         await page.goto('https://www.youtube.com/watch?v=-bNMq1Nxn5o');
 
         //1s待つ
-        await sleep(3000);
+        await sleep(1000);
+
+        await page.hover(".screenshotButton");
 
         await page.screenshot({ path: path.join(CAPTURE_DIR, 'YouTube.png') });
 
@@ -60,7 +77,7 @@ describe('Take Screenshot Test', () => {
         await page.click(".screenshotButton");
 
         //DL完了を待つ
-        await sleep(5000);
+        await download;
     });
 
 });
