@@ -8,7 +8,7 @@
 let screenshotButton = document.createElement("button");
 screenshotButton.className = "screenshotButton";
 screenshotButton.style.width = "32px";
-screenshotButton.innerHTML = '<img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:16px;height:16px;transform:translateY(2px);">'
+screenshotButton.innerHTML = '<img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:16px;height:16px;transform:translateY(2px);">'
 screenshotButton.style.background = "transparent";
 screenshotButton.style.border = "none";
 screenshotButton.onclick = CaptureScreenshot;
@@ -101,8 +101,7 @@ function getCommentCanvas() {
  * プレイヤー下に表示されている経過時間を取得
  * @returns 経過時間の文字列
  */
-function getElapsedTimeString()
-{
+function getElapsedTimeString() {
     let timeDiv = document.querySelector("span[class^='___time-score___']");
     let elapsedTime = timeDiv.querySelector("span[class^='___value___']");
 

@@ -28,7 +28,7 @@ chrome.storage.sync.get(['ctrl', 'alt', 'shift', 'key'], function (result) {
     if('ctrl' in result)ctrl = result.ctrl;
     if('alt' in result) alt = result.alt;
     if('shift' in result) shift = result.shift;
-    if('key' in key) key = result.key;
+    if('key' in result) key = result.key;
 });
 
 document.addEventListener("keydown", (e) => {

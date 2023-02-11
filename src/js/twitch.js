@@ -9,7 +9,7 @@ screenshotButton.className = "screenshotButton";
 screenshotButton.style.width = "3rem";
 screenshotButton.style.height = "3rem";
 screenshotButton.style.borderRadius = "0.4rem";
-screenshotButton.innerHTML = '<img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:2rem;height:2rem;transform:translate(25%,0)">'
+screenshotButton.innerHTML = '<img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:2rem;height:2rem;transform:translate(25%,0)">'
 screenshotButton.style.cssFloat = "left";
 // screenshotButton.onclick = CaptureScreenshot;
 

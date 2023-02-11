@@ -1,25 +1,22 @@
-chrome.webNavigation.onHistoryStateUpdated.addListener(function (data) {
-  chrome.tabs.get(data.tabId, function (tab) {
-    chrome.tabs.executeScript(data.tabId, { code: 'if (typeof AddScreenshotButton !== "undefined") { AddScreenshotButton(); }', runAt: 'document_start' });
+//TODO HistoryAPIを利用しての遷移時にスクショボタンを追加するためのコード
+// SPWN/ニコ生分を書いていないのでニコ生で生放送ページに戻るボタンで戻ったときにボタンが追加されないかも？
+
+function ignite(tabId) {
+  chrome.scripting.executeScript({
+    target: { tabId: tabId, allFrames: true },
+    func: () => {
+      if (typeof AddScreenshotButton !== "undefined") { AddScreenshotButton(); }
+    }
   });
-}, { url: [{ hostSuffix: '.youtube.com' }] });
-
-chrome.webNavigation.onHistoryStateUpdated.addListener(function (data) {
-  chrome.tabs.get(data.tabId, function (tab) {
-    chrome.tabs.executeScript(data.tabId, { code: 'if (typeof AddScreenshotButton !== "undefined") { AddScreenshotButton(); }', runAt: 'document_end' });
-  });
-}, { url: [{ hostSuffix: '.openrec.tv' }] });
-
-
-chrome.webNavigation.onHistoryStateUpdated.addListener(function (data) {
-  chrome.tabs.get(data.tabId, function (tab) {
-    chrome.tabs.executeScript(data.tabId, { code: 'if (typeof AddScreenshotButton !== "undefined") { AddScreenshotButton(); }', runAt: 'document_end' });
-  });
-}, { url: [{ hostSuffix: '.twitch.tv' }] });
-
+}
 
 chrome.webNavigation.onHistoryStateUpdated.addListener(function (data) {
-  chrome.tabs.get(data.tabId, function (tab) {
-    chrome.tabs.executeScript(data.tabId, { code: 'if (typeof AddScreenshotButton !== "undefined") { AddScreenshotButton(); }', runAt: 'document_end' });
-  });
-}, { url: [{ hostSuffix: '.mildom.com' }] });
+  ignite(data.tabId);
+}, {
+  url: [
+    { hostSuffix: '.youtube.com' },
+    { hostSuffix: '.openrec.tv' },
+    { hostSuffix: '.twitch.tv' },
+    { hostSuffix: '.mildom.com' }
+  ]
+});

@@ -2,8 +2,8 @@
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
   "default_locale": "ja",
-  "version": "1.1.2",
-  "manifest_version": 2,
+  "version": "1.2.0",
+  "manifest_version": 3,
   "homepage_url": "https://arus.me",
   "icons": {
     "16": "icons/icon16.png",
@@ -11,18 +11,32 @@
     "128": "icons/icon128.png"
   },
   "web_accessible_resources": [
-    "icons/icon.svg"
+    {
+      "resources": [
+        "icons/icon.svg"
+      ],
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://www.openrec.tv/*",
+        "https://www.twitch.tv/*",
+        "https://www.mildom.com/*",
+        "https://spwn.jp/*",
+        "https://*.spwn.jp/*",
+        "https://live.nicovideo.jp/*",
+        "https://*.zan-live.com/*"
+      ]
+    }
   ],
   "background": {
-    "scripts": [
-      "js/background.js"
-    ],
-    "persistent": false
+    "service_worker": "js/background.js"
   },
   "options_page": "options/options.html",
   "permissions": [
     "storage",
     "webNavigation",
+    "scripting"
+  ],
+  "host_permissions": [
     "https://www.youtube.com/*",
     "https://www.openrec.tv/*",
     "https://www.twitch.tv/*",
@@ -32,7 +46,9 @@
     "https://live.nicovideo.jp/*",
     "https://*.zan-live.com/*"
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' ; object-src 'self'"
+  },
   "content_scripts": [
     {
       "matches": [

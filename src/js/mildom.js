@@ -3,10 +3,10 @@
 //スクリーンショットのボタン設定
 let screenshotButton = document.createElement("button");
 screenshotButton.id = "chrome-extension-screenshot-button";
-screenshotButton.className = "screenshotButton";
+screenshotButton.className = "screenshotButton ccoLTU";
 screenshotButton.style.width = "auto";
 screenshotButton.style.marginRight = "32px"
-screenshotButton.innerHTML = '<img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:25px;height:25px;transform:translate(0,2px)">'
+screenshotButton.innerHTML = '<img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:25px;height:25px;transform:translate(0,2px)">'
 screenshotButton.style.cssFloat = "left";
 
 

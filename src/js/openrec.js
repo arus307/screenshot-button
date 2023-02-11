@@ -5,7 +5,7 @@ let screenshotButton = document.createElement("button");
 screenshotButton.id = "chrome-extension-screenshot-button";
 screenshotButton.className = "screenshotButton";
 screenshotButton.style.width = "auto";
-screenshotButton.innerHTML = '<img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:25px;height:25px;">'
+screenshotButton.innerHTML = '<img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:25px;height:25px;">'
 screenshotButton.style.cssFloat = "left";
 screenshotButton.onclick = CaptureScreenshot;
 
@@ -26,7 +26,7 @@ function main(e) {
 
         //追加済みであれば何もしない
         let isExist = document.getElementById("chrome-extension-screenshot-button");
-        if(isExist){
+        if (isExist) {
             return;
         }
 
@@ -72,15 +72,15 @@ function getFileName() {
     let title;
     let headerEls = $("h1[class^='MovieTitle__Title']");
 
-    if(headerEls.length>0){
+    if (headerEls.length > 0) {
         title = headerEls[0].innerText.trim();
-    }else{
-        title="OPENREC";
+    } else {
+        title = "OPENREC";
     }
 
     let player = document.getElementById("openrec-video");
     title += " " + Util.formatTime(player.currentTime);
-    
+
     title += " " + appendixTitle;
 
     return title;

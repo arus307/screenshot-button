@@ -2,7 +2,7 @@
 
 //スクリーンショットのボタン設定
 let screenshotButton = document.querySelector("button.st-activate__button").cloneNode();
-screenshotButton.innerHTML = '<a><img src="' + chrome.extension.getURL("icons/icon.svg") + '" style="width:25px;height:25px;"><br>スクショ</a>'
+screenshotButton.innerHTML = '<a><img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:25px;height:25px;"><br>スクショ</a>'
 screenshotButton.onclick = CaptureScreenshot;
 
 let ssLi = document.createElement("li");
