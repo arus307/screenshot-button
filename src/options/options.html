@@ -12,56 +12,51 @@
     </link>
     <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../lib/vue.min.js"></script>
+    <script src="../lib/jquery-3.5.1.slim.min.js"></script>
     <script src="options.js" defer></script>
 </head>
 
 <body>
     <div id="app" class="container">
-
         <div class="card mt-4">
-            <div class="card-header">
-                {{msgCurrentShortcutSettings}}
+            <div class="card-header" id="msg-current-shortcut-settings">
             </div>
 
             <div class="card-body">
-
                 <div class="row">
-
                     <div class="col">
-
                         <div class=" form-check form-switch">
                             <label for="input-ctrl" class="form-check-label">Ctrl</label>
-                            <input type="checkbox" v-model="ctrl" name="ctrl" id="input-ctrl" class="form-check-input">
+                            <input type="checkbox" name="ctrl" id="input-ctrl" class="form-check-input">
                         </div>
 
                         <div class="form-check form-switch">
                             <label for="input-alt" class="form-check-label">Alt</label>
-                            <input type="checkbox" v-model="alt" name="alt" id="input-alt" class="form-check-input">
+                            <input type="checkbox" name="alt" id="input-alt" class="form-check-input">
                         </div>
 
                         <div class="form-check form-switch">
                             <label for="input-shift" class="form-check-label">Shift</label>
-                            <input type="checkbox" v-model="shift" name="shift" id="input-shift"
-                                class="form-check-input">
+                            <input type="checkbox" name="shift" id="input-shift" class="form-check-input">
                         </div>
                     </div>
                 </div>
 
                 <div class="row mt-1">
-
-                    <div class="input-group col">
-
-                        <span class="input-group-text">{{msgShortcutKey}}</span>
-                        <input type="email" name="key" :value="key" id="input-key" maxlength="1" @keydown="onKeyDown"
-                            class="form-control">
+                    <div class="col-2">
+                        <label id="msg-shortcut-key" for="input-key"></label>
+                        <input type="email" name="key" :value="key" id="input-key" maxlength="1"
+                            style="text-align:center" @keydown="onKeyDown" class="form-control">
                     </div>
                 </div>
 
+                <div class="row mt-2">
+                    <div class="col">
+                        <button id="save-btn" class="btn btn-primary">保存</button>
+                    </div>
+                </div>
             </div>
-
         </div>
-
     </div>
 </body>
 
