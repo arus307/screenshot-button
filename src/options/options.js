@@ -1,11 +1,7 @@
 
-const msgTitle = chrome.i18n.getMessage('options_page_title');
-$("#title").html(msgTitle);
-
-
-
-const msgShortcutKey = chrome.i18n.getMessage('options_page_shortcut_key');
-$("#msg-shortcut-key").html(msgShortcutKey);
+$("#title").text(chrome.i18n.getMessage('options_page_title'));
+$("#msg-shortcut-key").text(chrome.i18n.getMessage('options_page_shortcut_key'));
+$("#save-btn").text(chrome.i18n.getMessage('options_save'));
 
 var ctrl = false;
 var alt = false;
@@ -20,7 +16,6 @@ chrome.storage.sync.get(['ctrl', 'alt', 'shift', 'key'], function (result) {
         ctrl = result.ctrl;
         $("#input-ctrl").prop('checked', ctrl);
     }
-
     if ('alt' in result) {
         alt = result.alt;
         $("#input-alt").prop('checked', alt);
@@ -52,7 +47,7 @@ function setCurrentKey(ctrl, alt, shift, key) {
     shortcut += this.key;
 
     const msgCurrentShortcutSettings = chrome.i18n.getMessage('options_page_current_shortcut_settings', [shortcut]);
-    $('#msg-current-shortcut-settings').html(msgCurrentShortcutSettings);
+    $('#msg-current-shortcut-settings').text(msgCurrentShortcutSettings);
 }
 
 function saveSettings() {

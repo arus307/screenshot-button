@@ -21,5 +21,8 @@
     },
     "options_page_shortcut_key": {
         "message": "キー"
+    },
+    "options_save": {
+        "message": "保存"
     }
 }
