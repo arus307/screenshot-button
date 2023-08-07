@@ -23,7 +23,8 @@
         "https://spwn.jp/*",
         "https://*.spwn.jp/*",
         "https://live.nicovideo.jp/*",
-        "https://*.zan-live.com/*"
+        "https://*.zan-live.com/*",
+        "https://www.showroom-live.com/*"
       ]
     }
   ],

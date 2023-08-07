@@ -1,25 +1,34 @@
 'use strict';
 
-//スクリーンショットのボタン設定
-let screenshotButton = document.querySelector("button.st-activate__button").cloneNode();
-screenshotButton.innerHTML = '<a><img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:25px;height:25px;"><br>スクショ</a>'
-screenshotButton.onclick = CaptureScreenshot;
-
-let ssLi = document.createElement("li");
-ssLi.className = "st-activate__item";
-ssLi.prepend(screenshotButton);
 
 /**
  * スクリーンショットボタンを追加
  */
 function AddScreenshotButton() {
+
+    const buttonId = 'screenshot-button';
+
+    const isExist = document.getElementById(buttonId) !== null;
+    if (isExist) return;
+
+    //スクリーンショットのボタン設定
+    let screenshotButton = document.querySelector("button.st-activate__button").cloneNode();
+    screenshotButton.setAttribute('id', buttonId);
+    screenshotButton.innerHTML = '<a><img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:25px;height:25px;"><br>スクショ</a>'
+    screenshotButton.onclick = CaptureScreenshot;
+
+    let ssLi = document.createElement("li");
+    ssLi.className = "st-activate__item";
+    ssLi.prepend(screenshotButton);
+
+
     let footerUl = document.querySelector("ul.st-activate__list");
     if (footerUl) {
-        footerUl.prepend(ssLi);
+        footerUl.append(ssLi);
     }
 }
 
-AddScreenshotButton();
+const jsInitCheckTimer = setInterval(AddScreenshotButton, 100);
 
 /**
  * キャプチャ実行
