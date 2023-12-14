@@ -4,11 +4,10 @@
 let screenshotButton = document.createElement("button");
 screenshotButton.className = "screenshotButton";
 screenshotButton.title = "スクリーンショットを撮る"
-screenshotButton.innerHTML = '<img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:22px;height:22px;transform:translate(11px,7px)">'
+screenshotButton.innerHTML = '<img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:22px;height:22px;">'
 screenshotButton.style.cssFloat = "right";
 screenshotButton.style.backgroundColor = "transparent";
 screenshotButton.style.border = "none";
-screenshotButton.style.marginTop = "5px";
 screenshotButton.style.marginRight = "5px";
 screenshotButton.onclick = CaptureScreenshot;
 
