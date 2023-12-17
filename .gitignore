@@ -1,2 +1,6 @@
 /node_modules/
 *.zip
+/act-artifacts/*
+/manual/*
+/test/download/*
+/test/puppeteerScreenshot/*
