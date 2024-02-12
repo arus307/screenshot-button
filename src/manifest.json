@@ -2,7 +2,7 @@
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
   "default_locale": "ja",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "manifest_version": 3,
   "homepage_url": "https://arus.me",
   "icons": {
@@ -24,7 +24,8 @@
         "https://*.spwn.jp/*",
         "https://live.nicovideo.jp/*",
         "https://*.zan-live.com/*",
-        "https://www.showroom-live.com/*"
+        "https://www.showroom-live.com/*",
+        "https://chzzk.naver.com/*"
       ]
     }
   ],
@@ -45,7 +46,8 @@
     "https://spwn.jp/*",
     "https://*.spwn.jp/*",
     "https://live.nicovideo.jp/*",
-    "https://*.zan-live.com/*"
+    "https://*.zan-live.com/*",
+    "https://chzzk.naver.com/*"
   ],
   "content_security_policy": {
     "extension_pages": "script-src 'self' ; object-src 'self'"
@@ -129,6 +131,16 @@
       ],
       "js": [
         "js/zan.js",
+        "js/util.js",
+        "js/shared.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://chzzk.naver.com/*"
+      ],
+      "js": [
+        "js/chzzk.js",
         "js/util.js",
         "js/shared.js"
       ]

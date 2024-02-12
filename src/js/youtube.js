@@ -47,7 +47,8 @@ function CaptureScreenshot() {
  * ファイル名取得
  */
 function getFileName() {
-    let ext = ".png";
+    const prefix = Util.getFilePrefix();
+    const ext = ".png";
     let title;
     let headerEls = document.querySelectorAll("h1.title");
 
