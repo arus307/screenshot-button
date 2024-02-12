@@ -47,7 +47,7 @@ function CaptureScreenshot() {
  * ファイル名取得
  */
 function getFileName() {
-    let appendixTitle = "screenshot.png";
+    let ext = ".png";
     let title;
     let headerEls = document.querySelectorAll("h1.title");
 
@@ -73,9 +73,7 @@ function getFileName() {
     }
     let player = document.getElementsByClassName("video-stream")[0];
 
-    title += " " + Util.formatTime(player.currentTime);
+    title += "_" + Util.formatTime(player.currentTime);
 
-    title += " " + appendixTitle;
-
-    return title;
+    return prefix + title + ext;
 }

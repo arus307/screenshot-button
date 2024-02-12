@@ -70,7 +70,8 @@ function CaptureScreenshot() {
  * ファイル名取得
  */
 function getFileName() {
-    let appendixTitle = "screenshot.png";
+    const prefix = Util.getFilePrefix();
+    const ext = ".png";
     let title;
     let headerEls = $("h2[data-a-target='stream-title']");
 
@@ -83,7 +84,5 @@ function getFileName() {
     let player = document.getElementsByTagName("video")[0];
     title += " " + Util.formatTime(player.currentTime);
 
-    title += " " + appendixTitle;
-
-    return title;
+    return prefix + title + ext;
 }

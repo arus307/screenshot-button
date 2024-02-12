@@ -50,11 +50,11 @@ function CaptureScreenshot() {
  * ファイル名取得
  */
 function getFileName(player) {
-
-    let ext = ".png";
+    const prefix = Util.getFilePrefix();
+    const ext = ".png";
     let title = "";
 
     title += Util.formatTime(player.currentTime);
 
-    return "Z-AN_" + title + " screenshot" + ext;
+    return prefix + "Z-AN_" + title + ext;
 }

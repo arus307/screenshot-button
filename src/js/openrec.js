@@ -68,7 +68,8 @@ function CaptureScreenshot() {
  * ファイル名取得
  */
 function getFileName() {
-    let appendixTitle = "screenshot.png";
+    const prefix = Util.getFilePrefix();
+    const ext = ".png";
     let title;
     let headerEls = $("h1[class^='MovieTitle__Title']");
 
@@ -79,9 +80,7 @@ function getFileName() {
     }
 
     let player = document.getElementById("openrec-video");
-    title += " " + Util.formatTime(player.currentTime);
+    title += "_" + Util.formatTime(player.currentTime);
 
-    title += " " + appendixTitle;
-
-    return title;
+    return prefix + title + ext;
 }

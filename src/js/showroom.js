@@ -57,7 +57,8 @@ function CaptureScreenshot() {
  * ファイル名取得
  */
 function getFileName() {
-    let appendixTitle = "screenshot.png";
+    const prefix = Util.getFilePrefix();
+    const ext = ".png";
     let title;
     let headerEls = document.querySelectorAll("h1.room-name");
 
@@ -67,7 +68,5 @@ function getFileName() {
         title = 'SHOWROOM';
     }
 
-    title += " " + appendixTitle;
-
-    return title;
+    return prefix + title + ext;
 }

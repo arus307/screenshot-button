@@ -75,7 +75,8 @@ function CaptureScreenshot() {
  * ファイル名取得
  */
 function getFileName(player) {
-    let appendixTitle = "screenshot.png";
+    const prefix = Util.getFilePrefix();
+    const ext = ".png";
     let title;
 
     let headerEl = document.querySelectorAll("div .room-anchor-panel__anchor-intro")[0];
@@ -91,8 +92,7 @@ function getFileName(player) {
         }
     }
 
-    title += " " + Util.formatTime(player.currentTime);
-    title += " " + appendixTitle;
+    title += "_" + Util.formatTime(player.currentTime);
 
-    return title;
+    return prefix + title + ext;
 }

@@ -53,10 +53,11 @@ function CaptureScreenshot() {
  * ファイル名取得
  */
 function getFileName(player) {
-    let ext = ".png";
+    const prefix = Util.getFilePrefix();
+    const ext = ".png";
     let title = "";
 
     title += Util.formatTime(player.currentTime);
 
-    return "SPWN" + title + " screenshot" + ext;
+    return prefix + "SPWN" + title + ext;
 }
