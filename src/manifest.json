@@ -2,7 +2,7 @@
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
   "default_locale": "ja",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "manifest_version": 3,
   "homepage_url": "https://arus.me",
   "icons": {
@@ -122,6 +122,7 @@
       ],
       "js": [
         "js/nicolive.js",
+        "js/util.js",
         "js/shared.js"
       ]
     },
