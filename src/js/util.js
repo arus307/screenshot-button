@@ -1,7 +1,7 @@
 class Util {
 
     /**
-     * 秒をd-h-m-sの形にフォーマットする
+     * 秒をh-m-sの形にフォーマットする
      * @param {*} time 経過秒
      */
     static formatTime(time) {
@@ -26,10 +26,7 @@ class Util {
             return hours + "h" + Util.paddingZero(minutes, 2) + "m" + Util.paddingZero(seconds, 2) + "s";
         }
 
-        var days = Math.floor(hours / 24);
-        hours = hours % 24;
-
-        return days + "d" + Util.paddingZero(hours, 2) + "h" + Util.paddingZero(minutes, 2) + "m" + Util.paddingZero(seconds, 2) + "s";
+        return Util.paddingZero(hours, 2) + "h" + Util.paddingZero(minutes, 2) + "m" + Util.paddingZero(seconds, 2) + "s";
     }
 
     static paddingZero(num, countOfZero) {

@@ -81,8 +81,18 @@ function getFileName() {
         title = "Twitch";
     }
 
-    let player = document.getElementsByTagName("video")[0];
-    title += " " + Util.formatTime(player.currentTime);
+    const uptimeOnLiveElements = document.getElementsByClassName("live-time");
+    if (uptimeOnLiveElements.length > 0) {
+        // 配信ページの配信時間があればそちらを採用
+        const uptimeOnLive = uptimeOnLiveElements[0].textContent; //12:34:56
+        // 12h34m56sに変換
+        const convertedUptime = uptimeOnLive.replace(":", "h").replace(":", "m") + "s";
+        title += " " + convertedUptime;
+    } else {
+        // プレイヤーの時間から取得
+        let player = document.getElementsByTagName("video")[0];
+        title += " " + Util.formatTime(player.currentTime);
+    }
 
     return prefix + title + ext;
 }
