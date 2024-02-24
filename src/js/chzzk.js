@@ -58,7 +58,12 @@ function CaptureScreenshot() {
 function getFileName() {
     const prefix = Util.getFilePrefix();
     const ext = ".png";
-    const streamTitle = document.querySelector("[class^=video_information_title__]").textContent;
+
+    const titleOnDefaultMode = document.querySelector("[class^=video_information_title__]")
+
+    const streamTitle = titleOnDefaultMode != null
+        ? titleOnDefaultMode.textContent
+        : document.querySelector("[class^=live_information_player_title__]").textContent; // for wide mode
 
     return prefix + streamTitle + ext;
 }
