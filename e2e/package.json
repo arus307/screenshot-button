@@ -7,5 +7,10 @@
     "@playwright/test": "^1.42.1",
     "@types/node": "^20.11.24"
   },
-  "scripts": {}
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
 }

@@ -7,6 +7,7 @@ screenshotButton.title = "スクリーンショットを撮る"
 screenshotButton.innerHTML = '<img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:22px;height:22px;transform:translate(11px,7px)">'
 screenshotButton.style.cssFloat = "left";
 screenshotButton.onclick = CaptureScreenshot;
+screenshotButton.setAttribute('data-testid', 'screenshot-button'); // for testing
 
 /**
  * スクリーンショットボタンを追加
