@@ -43,7 +43,6 @@ test.describe('Take Screenshot', () => {
     await expect(page.locator('div.userNaviBtnBox')).toBeVisible();
     /* ここまでログイン */
 
-
     await page.goto('https://www.zan-live.com/ja/live/play/1797/663');
     const video = page.locator('video');
     await expect(video).toBeVisible();
@@ -64,8 +63,7 @@ test.describe('Take Screenshot', () => {
     await page.goto('https://live.nicovideo.jp/');
 
     // 配信中のchを探す
-    const recommendChs = page.locator('#recommendedProgramListSection');
-    const onLive = recommendChs.getByText('LIVE').first();
+    const onLive = page.getByText('LIVE').first();
     await onLive.click();
 
     // 以下配信ページ想定
@@ -91,10 +89,15 @@ test.describe('Take Screenshot', () => {
 
     featuredItem.locator('.click-handler').click();
 
+    await page.waitForTimeout(3 * 1000);
+
     const video = page.locator('video');
     await expect(video).toBeVisible();
 
-    const screenshotButton = await page.getByRole('region', { name: 'Player Controls' }).getByTestId(SCREENSHOT_BUTTON_TESTID);
+    // ショートカットキーで停止
+    page.keyboard.press('K');
+
+    const screenshotButton = await page.getByTestId(SCREENSHOT_BUTTON_TESTID).nth(0);
     await expect(screenshotButton).toBeVisible();
 
     const downloadPromise = page.waitForEvent('download');
@@ -107,11 +110,7 @@ test.describe('Take Screenshot', () => {
     await page.goto('https://www.showroom-live.com/');
 
     const onLives = page.locator('.story');
-
     const liveLink = onLives.getByRole('link');
-
-    console.log(liveLink);
-
     liveLink.click();
 
     const screenshotButton = await page.getByTestId(SCREENSHOT_BUTTON_TESTID);
@@ -156,7 +155,7 @@ test.describe('Take Screenshot', () => {
     page.getByText('ライブ').nth(0).click();
 
     await expect(page).toHaveURL(new RegExp('mildom.com/\\d'));
-    await page.waitForTimeout(5 * 1000);
+    await page.waitForTimeout(10 * 1000);
 
     const screenshotButton = await page.getByTestId(SCREENSHOT_BUTTON_TESTID);
     await expect(screenshotButton).toBeVisible();
