@@ -5,6 +5,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 //スクリーンショットのボタン設定
 let screenshotButton = document.createElement("button");
+screenshotButton.setAttribute('data-testid', "screenshot-button");
 screenshotButton.className = "screenshotButton";
 screenshotButton.style.width = "3rem";
 screenshotButton.style.height = "3rem";

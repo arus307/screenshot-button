@@ -1,6 +1,7 @@
 'use strict';
 
 let screenshotButton = document.createElement("button");
+screenshotButton.setAttribute('data-testid', "screenshot-button");
 screenshotButton.className = "screenshotButton pzp-button pzp-pc-ui-button pzp-pc__setting-button";
 screenshotButton.title = "Take screenshot";
 screenshotButton.style = "width:36px;height:36px;";

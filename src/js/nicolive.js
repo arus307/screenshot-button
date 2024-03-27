@@ -6,6 +6,7 @@
 
 //スクリーンショットのボタン設定
 let screenshotButton = document.createElement("button");
+screenshotButton.setAttribute('data-testid', "screenshot-button");
 screenshotButton.className = "screenshotButton";
 screenshotButton.style.width = "32px";
 screenshotButton.innerHTML = '<img src="' + chrome.runtime.getURL("icons/icon.svg") + '" style="width:16px;height:16px;transform:translateY(2px);">'

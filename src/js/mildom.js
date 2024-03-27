@@ -2,6 +2,7 @@
 
 //スクリーンショットのボタン設定
 let screenshotButton = document.createElement("button");
+screenshotButton.setAttribute('data-testid', "screenshot-button");
 screenshotButton.id = "chrome-extension-screenshot-button";
 screenshotButton.className = "screenshotButton ccoLTU";
 screenshotButton.style.width = "auto";
